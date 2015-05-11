@@ -7,7 +7,7 @@ Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Light-weight plugin that converts your WooCommerce variations in to radio buttons or table layout.
+Light-weight plugin that displays your WooCommerce variations in a table layout.
 
 == Description ==
 

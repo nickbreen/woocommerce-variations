@@ -21,15 +21,16 @@ global $woocommerce, $product, $post;
 <form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo $post->ID; ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
 	<?php if ( ! empty( $available_variations ) ) : ?>
 		<table class="variations" cellspacing="0">
-			<tbody>
-				<?php $loop = 0; foreach ( $attributes as $name => $options ) : $loop++; ?>
+			<?php $loop = 0; foreach ( $attributes as $name => $options ) : $loop++; ?>
+			    <tbody>
 					<tr>
 						<td class="label"><label for="<?php echo sanitize_title($name); ?>"><?php echo wc_attribute_label( $name ); ?></label></td>
-						<td class="value"><fieldset>
-                        <strong>Choose An Option...</strong><br />
+						<td class="value">
+                        <fieldset>
+                        <legend>Choose An Option...</legend>
                         <?php
                             if ( is_array( $options ) ) {
- 
+
                                 if ( empty( $_POST ) )
                                     $selected_value = ( isset( $selected_attributes[ sanitize_title( $name ) ] ) ) ? $selected_attributes[ sanitize_title( $name ) ] : '';
                                 else
@@ -37,9 +38,9 @@ global $woocommerce, $product, $post;
 								//echo   $selected_value;
                                 // Get terms if this is a taxonomy - ordered
                                 if ( taxonomy_exists( sanitize_title( $name ) ) ) {
- 
+
                                     $terms = get_terms( sanitize_title($name), array('menu_order' => 'ASC') );
-									
+
                                     foreach ( $terms as $term ) {
                                         if ( ! in_array( $term->slug, $options ) ) continue;
                                         echo '<input type="radio" value="' . strtolower($term->slug) . '" ' . checked( strtolower ($selected_value), strtolower ($term->slug), false ) . ' id="'. esc_attr( sanitize_title($name) ) .'" name="attribute_'. sanitize_title($name).'">' . apply_filters( 'woocommerce_variation_option_name', $term->name ).'<br />';
@@ -50,13 +51,15 @@ global $woocommerce, $product, $post;
                                 }
                             }
                         ?>
-                    </fieldset> <?php
+                        </fieldset>
+                        <?php
 							if ( sizeof($attributes) == $loop )
 								//echo '<a class="reset_variations" href="#reset">' . __( 'Clear selection', 'woocommerce' ) . '</a>';
-						?></td>
+						?>
+                        </td>
 					</tr>
-		        <?php endforeach;?>
-			</tbody>
+			    </tbody>
+		    <?php endforeach;?>
 		</table>
 
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>

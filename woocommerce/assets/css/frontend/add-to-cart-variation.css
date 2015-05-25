@@ -1,0 +1,65 @@
+.single-product div.product table.variations {
+    margin: 1.618em auto 3.236em;
+    font-size: smaller;
+}
+
+.single-product div.product table.variations td,
+.single-product div.product table.variations th {
+    /* Storefont makes these list-item for some reason! */
+    display: table-cell;
+    vertical-align: baseline;
+}
+
+.single-product div.product table.variations td.sku,
+.single-product div.product table.variations th.sku {
+    white-space: nowrap;
+}
+
+.single-product div.product table.variations th.currency,
+.single-product div.product table.variations td.currency {
+    text-align: right;
+}
+
+.single-product div.product table.variations td.form {
+    width: -moz-min-content;
+    width: -webkit-min-content;
+    width: min-content;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.single-product div.product table.variations td.form form.cart {
+    margin: initial;
+    padding: 0.25em 0;
+    border: initial;
+}
+
+.single-product div.product table.variations td.form div.quantity {
+    display: inline;
+    float: initial;
+}
+
+.single-product div.product table.variations td.form div.quantity input.qty {
+    max-width: 6em !important;
+}
+
+input[type=number] {
+    text-align: right !important;
+}
+
+.woocommerce-tabs {
+    border: none;
+    margin: initial;
+    padding: initial;
+}
+
+.woocommerce-tabs div.panel {
+    display: initial !important;
+    width: initial;
+    float: initial;
+}
+
+.sku {
+    font-variant: small-caps;
+    text-transform: lowercase;
+}

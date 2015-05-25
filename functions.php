@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) or die();
 
 
-if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) :
 // function wooradio_plugin_path() {
 //   // gets the absolute path to this plugin directory
 //   return untrailingslashit( plugin_dir_path( __FILE__ ) );
@@ -39,7 +39,7 @@ add_filter( 'woocommerce_locate_template', function ( $template, $template_name,
     return $template;
 }, 10, 3 );
 
-$register_woo_radio_button_scripts = function () {
+$register_scripts = function () {
 
   wp_deregister_script('wc-add-to-cart-variation');
 
@@ -51,6 +51,23 @@ $register_woo_radio_button_scripts = function () {
 
 };
 
-add_action( 'wp_enqueue_scripts', $register_woo_radio_button_scripts );
-add_action( 'wp_footer', $register_woo_radio_button_scripts);
-}
+// add_action( 'wp_enqueue_scripts', $register_scripts );
+// add_action( 'wp_footer', $register_scripts);
+
+$register_styles = function () {
+
+    wp_deregister_style('wc-add-to-cart-variation');
+
+    wp_dequeue_style('wc-add-to-cart-variation');
+
+    wp_register_style( 'wc-add-to-cart-variation', plugins_url( 'woocommerce\assets\css\frontend\add-to-cart-variation.css', __FILE__ ), array('storefront-woocommerce-style'));
+
+    wp_enqueue_style('wc-add-to-cart-variation');
+
+};
+
+add_action( 'wp_enqueue_scripts', $register_styles );
+
+endif;
+
+require_once 'tab.php';

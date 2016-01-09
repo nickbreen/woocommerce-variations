@@ -39,7 +39,7 @@ $visible_active_variations = array_filter($available_variations, function ($v) {
                 <?php foreach ($attributes as $j => $a) : ?>
                     <td class="attribute">
                         <?php foreach ($a as $o) : ?>
-                            <?php if (in_array( sanitize_title( $o ), $variation['attributes'])) : ?>
+                            <?php if (in_array($o, $variation['attributes'])) : ?>
                                 <?php echo esc_html( apply_filters( 'woocommerce_variation_option_name', $o ) ); ?>
                             <?php endif; ?>
                         <?php endforeach; ?>

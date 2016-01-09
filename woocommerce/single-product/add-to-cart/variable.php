@@ -37,13 +37,7 @@ $visible_active_variations = array_filter($available_variations, function ($v) {
         <?php foreach ($visible_active_variations as $i => $variation) : ?>
             <tr>
                 <?php foreach ($attributes as $j => $a) : ?>
-                    <td class="attribute">
-                        <?php foreach ($a as $o) : ?>
-                            <?php if (in_array($o, $variation['attributes'])) : ?>
-                                <?php echo esc_html( apply_filters( 'woocommerce_variation_option_name', $o ) ); ?>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </td>
+                    <td class="attribute"><span><?php echo implode('</span><span>', array_map(function ($o) { return esc_html( apply_filters( 'woocommerce_variation_option_name', $o ) ); }, array_intersect($a, $variation['attributes']))); ?></span></td>
                 <?php endforeach; ?>
                 <td class="sku"><?php echo $variation['sku']; ?></td>
                 <td class="currency"><?php echo $variation['price_html'];?></td>
@@ -51,15 +45,11 @@ $visible_active_variations = array_filter($available_variations, function ($v) {
                     <?php if( $variation['is_in_stock'] ) : ?>
                         <form class="cart" action="<?php echo esc_url( $product->add_to_cart_url() ); ?>" method="post" enctype='multipart/form-data'>
                             <?php woocommerce_quantity_input(array('min_value' => 1)); ?>
-                            <?php
-                            if(!empty($variation['attributes'])){
-                                foreach ($variation['attributes'] as $attr_key => $attr_value) {
-                                    ?>
+                            <?php if(!empty($variation['attributes'])) : ?>
+                                <?php foreach ($variation['attributes'] as $attr_key => $attr_value) : ?>
                                     <input type="hidden" name="<?php echo $attr_key?>" value="<?php echo $attr_value?>">
-                                    <?php
-                                }
-                            }
-                            ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                             <button type="submit" class="single_add_to_cart_button btn btn-primary alt"><span class="glyphicon glyphicon-tag"></span> Add to cart</button>
                             <input type="hidden" name="variation_id" value="<?php echo $variation['variation_id']?>" />
                             <input type="hidden" name="product_id" value="<?php echo esc_attr( $post->ID ); ?>" />

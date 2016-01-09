@@ -1,6 +1,5 @@
 .single-product div.product table.variations {
     margin: 1.618em auto 3.236em;
-    font-size: smaller;
 }
 
 .single-product div.product table.variations td,
@@ -10,14 +9,21 @@
     vertical-align: baseline;
 }
 
+.single-product div.product table.variations td.attribute span:not(:first-of-type)::before {
+  content: '\0020\2022\00a0';
+}
+
 .single-product div.product table.variations td.sku,
 .single-product div.product table.variations th.sku {
     white-space: nowrap;
+    width: min-content;
 }
 
 .single-product div.product table.variations th.currency,
 .single-product div.product table.variations td.currency {
     text-align: right;
+    white-space: nowrap;
+    width: min-content;
 }
 
 .single-product div.product table.variations td.form {
@@ -57,9 +63,4 @@ input[type=number] {
     display: initial !important;
     width: initial;
     float: initial;
-}
-
-.sku {
-    font-variant: small-caps;
-    text-transform: lowercase;
 }

@@ -43,7 +43,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
     } );
 
     // Remove 'add to cart' from directly beneath the summary
-    // As a table or variations it is far too big.
+    // As a table of variations it is far too big.
     // See woocommerce/includes/wc-template-hooks.php:146
     add_action('woocommerce_single_product_summary', function () {
         // remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );

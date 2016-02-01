@@ -54,27 +54,17 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
     add_filter('woocommerce_product_tabs', function ($tabs = array()) {
         global $product;
 
-        unset($tabs['reviews']);
-        unset($tabs['additional_information']);
-
-        if (is_product() and $product->product_type == 'variable') {
-
+        if (is_product() and $product->product_type == 'variable')
             $tabs['variations_table'] = array(
                 'title' 	=> __( 'Product Variations', 'woocommerce' ),
                 'priority' 	=> 15,
-                'callback' 	=>
-                function ($key, $tab) {
+                'callback' 	=> function ($key, $tab) {
                     $heading = esc_html( apply_filters( 'woocommerce_product_variations_heading', __( $tab['title'], 'woocommerce' ) ) );
                     if ( $heading )
-                    echo "<h2>$heading</h2>";
-
-                    // Cheekily just call the built-in directly.
-                    // Can't do_action here as we've removed the hook.
+                        echo "<h2>$heading</h2>";
                     woocommerce_variable_add_to_cart();
                 }
             );
-        }
-
         return $tabs;
     }, 90);
 

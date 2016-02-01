@@ -9,10 +9,6 @@
     vertical-align: baseline;
 }
 
-.single-product div.product table.variations td.attribute span:not(:first-of-type)::before {
-  content: '\0020\2022\00a0';
-}
-
 .single-product div.product table.variations td.sku,
 .single-product div.product table.variations th.sku {
     white-space: nowrap;
@@ -27,9 +23,6 @@
 }
 
 .single-product div.product table.variations td.form {
-    width: -moz-min-content;
-    width: -webkit-min-content;
-    width: min-content;
     white-space: nowrap;
     text-align: right;
 }
@@ -46,17 +39,17 @@
 }
 
 .single-product div.product table.variations td.form div.quantity input.qty {
-    max-width: 6em !important;
+    min-width: 5em !important;
+    max-width: none !important;
+    width: 7em;
 }
 
 input[type=number] {
     text-align: right !important;
 }
 
-.woocommerce-tabs {
-    border: none;
-    margin: initial;
-    padding: initial;
+.woocommerce-tabs ul.wc-tabs {
+  display: none;
 }
 
 .woocommerce-tabs div.panel {

@@ -50,7 +50,7 @@ $visible_active_variations = array_filter($available_variations, function ($v) {
                     <?php do_action( 'woocommerce_before_single_variation' ); ?>
                     <?php if( $variation['is_in_stock'] ) : ?>
                         <form class="cart" action="<?php echo esc_url( $product->add_to_cart_url() ); ?>" method="post" enctype='multipart/form-data'>
-                            <?php woocommerce_quantity_input(array('min_value' => 1); ?>
+                            <?php woocommerce_quantity_input(array('min_value' => 1)); ?>
                             <?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
                             <button type="submit" class="single_add_to_cart_button btn btn-primary alt"><span class="glyphicon glyphicon-tag"></span> Add to cart</button>
                             <?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>

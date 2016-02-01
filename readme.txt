@@ -1,19 +1,30 @@
-Plugin Name: Woo Variations
+Display WooCommerce variations in a table layout.
 
-# What?
+# WooCommerce Product Variations Table
 
-Light-weight plugin that displays your WooCommerce variations in a table layout.
+This display of variations as a table is controlled with the
+```variations_table``` option. If set to ```yes``` (the default).
 
-# How?
+Overloads the ```woocommerce/single-product/add-to-cart/variable.php```
+template and replaces the built-in CSS with ```woocommerce/assets/css/frontend/add-to-cart-variation.css```.
 
-Overloads the ```woocommerce/single-product/add-to-cart/variable.php``` template
-and replaces the built-in CSS with ```woocommerce/assets/css/frontend/add-to-cart-variation.css```.
-
-The variations table is too large to display in the typical position and registers the variations table as a _tab_ instead.
+The variations table is too large to display in the typical position, it is
+registered as a _tab_ instead.
 
 # Tabs Suck
 
-Do not hide important content from the user. Pages expand to as as long as they need to be, don't mess with that.
+Do not hide important content from the user. Pages expand to as as long as they
+need to be, don't mess with that.
 
-So, for better or worse, this plugin also changes the display of tabs. The tab control is hidden with CSS
-and all tab panels are displayed as block elements.
+The ```tabs_suck``` option controls the display of tabs. If set to ```yes```
+(the default) the tab control is hidden with CSS and all tab panels are
+displayed as ordinary block elements.
+
+# Remove Unwanted Tabs
+
+The ```tabs_to_remove``` option is a comma-delimited list of tab panels to
+remove from the tab set.
+
+# Options UI
+
+No UI is provided to set these options.

@@ -25,6 +25,8 @@ $visible_active_variations = array_filter($available_variations, function ($v) {
 });
 ?>
 
+<?php if ($visible_active_variations) : ?>
+
 <?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 <?php do_action( 'woocommerce_before_variations_form' ); ?>
 <table class="variations variations-grid" cellspacing="0" summary="Variations">
@@ -79,3 +81,9 @@ $visible_active_variations = array_filter($available_variations, function ($v) {
 </table>
 <?php do_action( 'woocommerce_after_variations_form' ); ?>
 <?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
+
+<?php else: ?>
+
+<p><?php echo get_option('woocommerce_variations_no_variations_available', 'No variations available.');?></p>
+
+<?php endif; ?>

@@ -1,9 +1,9 @@
 .woocommerce-tabs ul.wc-tabs {
-  display: none;
+    display: none;
 }
 
 .woocommerce-tabs div.panel {
-    display: initial !important;
-    width: initial;
-    float: initial;
+    display: block !important;
+    width: 100%;
+    float: none;
 }

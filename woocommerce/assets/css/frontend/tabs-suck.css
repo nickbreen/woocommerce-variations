@@ -4,6 +4,6 @@
 
 .woocommerce-tabs div.panel {
     display: block !important;
-    width: 100%;
+    width: auto;
     float: none;
 }

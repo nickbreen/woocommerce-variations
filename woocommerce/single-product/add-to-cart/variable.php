@@ -54,14 +54,14 @@ $visible_active_variations = array_filter($available_variations, function ($v) {
                         <form class="cart" action="<?php echo esc_url( $product->add_to_cart_url() ); ?>" method="post" enctype='multipart/form-data'>
                             <?php woocommerce_quantity_input(array('min_value' => 1)); ?>
                             <?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
-                            <button type="submit" class="single_add_to_cart_button btn btn-primary alt"><span class="glyphicon glyphicon-tag"></span> Add to cart</button>
+                            <button type="submit" class="single_add_to_cart_button btn btn-primary alt"><span class="glyphicon glyphicon-tag"></span>Add to cart</button>
                             <?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
                             <?php if(!empty($variation['attributes'])) : ?>
                                 <?php foreach ($variation['attributes'] as $attr_key => $attr_value) : ?>
-                                    <input type="hidden" name="<?php echo $attr_key?>" value="<?php echo $attr_value?>">
+                                    <input type="hidden" name="<?php echo esc_attr($attr_key)?>" value="<?php echo esc_attr($attr_value)?>">
                                 <?php endforeach; ?>
                             <?php endif; ?>
-                            <input type="hidden" name="variation_id" value="<?php echo $variation['variation_id']?>" />
+                            <input type="hidden" name="variation_id" value="<?php echo esc_attr($variation['variation_id'])?>" />
                             <input type="hidden" name="product_id" value="<?php echo esc_attr( $product->id ); ?>" />
                             <input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
                         </form>

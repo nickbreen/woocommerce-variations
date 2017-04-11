@@ -1,11 +1,12 @@
 <?php
 /**
  * Plugin Name: Woo Variations
- * Plugin URI: http://github/nickbreen/woocommerce-variations
+ * Plugin URI: https://github.com/nickbreen/woocommerce-variations
+ * Github Plugin URI: https://github.com/nickbreen/woocommerce-variations
  * Description: Light-weight plugin that displays your WooCommerce variations in a table layout.
- * Author: nickbreen
- * Version: 1.0.0
- * Author URI: http://github/nickbreen
+ * Author: Nick Breen
+ * Version: 1.0.1
+ * Author URI: https://github.com/nickbreen
  */
 
 defined( 'ABSPATH' ) or die();

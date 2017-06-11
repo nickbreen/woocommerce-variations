@@ -5,7 +5,7 @@
  * Github Plugin URI: https://github.com/nickbreen/woocommerce-variations
  * Description: Light-weight plugin that displays your WooCommerce variations in a table layout.
  * Author: Nick Breen
- * Version: 1.0.1
+ * Version: 1.0.5
  * Author URI: https://github.com/nickbreen
  */
 

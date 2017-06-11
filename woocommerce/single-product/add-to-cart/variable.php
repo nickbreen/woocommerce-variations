@@ -47,7 +47,7 @@ $visible_active_variations = array_filter($available_variations, function ($v) {
                     <td class="attribute"><span><?php echo implode('</span><span>', array_map(function ($o) { return esc_html( apply_filters( 'woocommerce_variation_option_name', $o ) ); }, array_intersect($a, $variation['attributes']))); ?></span></td>
                 <?php endforeach; ?>
                 <td class="sku"><?php echo $variation['sku']; ?></td>
-                <td class="currency"><?php echo $variation['price_html'];?></td>
+                <td class="currency"><?php echo $variation['price_html'] ?: $product->get_price_html();?></td>
                 <td class="form">
                     <?php do_action( 'woocommerce_before_single_variation' ); ?>
                     <?php if( $variation['is_in_stock'] ) : ?>
@@ -62,8 +62,8 @@ $visible_active_variations = array_filter($available_variations, function ($v) {
                                 <?php endforeach; ?>
                             <?php endif; ?>
                             <input type="hidden" name="variation_id" value="<?php echo esc_attr($variation['variation_id'])?>" />
-                            <input type="hidden" name="product_id" value="<?php echo esc_attr( $product->id ); ?>" />
-                            <input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
+                            <input type="hidden" name="product_id" value="<?php echo esc_attr( $product->get_id() ); ?>" />
+                            <input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" />
                         </form>
                     <?php else: ?>
                         <p class="stock out-of-stock"><?php _e( 'This product is currently out of stock and unavailable.', 'woocommerce' ); ?></p>

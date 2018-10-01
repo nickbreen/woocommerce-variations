@@ -1,5 +1,6 @@
 .single-product div.product table.variations {
     margin: 1.618em auto 3.236em;
+    table-layout: initial;
 }
 
 .single-product div.product table.variations td,
@@ -25,6 +26,7 @@
 .single-product div.product table.variations td.form {
     white-space: nowrap;
     text-align: right;
+    display: inline-block;
 }
 
 .single-product div.product table.variations td.form form.cart {
